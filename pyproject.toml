@@ -1,0 +1,22 @@
+[project]
+name = "diagnose"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "allure-pytest>=2.16.2",
+    "allure-python-commons>=2.16.2",
+    "pytest>=9.2.0",
+    "requests>=2.34.2",
+]
+
+[[tool.uv.index]]
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
+
+[tool.pytest.ini_options]
+norecursedirs = ["exercises", ".venv", ".idea"]
+
+markers = [
+    "smoke: 冒烟用例，核心路径，改代码后必跑",
+    "security: 安全相关，涉及权限和数据隔离",
+]
