@@ -24,7 +24,7 @@ jobs:
 
       - name: 启动被测服务并等待就绪
         run: |
-          uv run python mock_server/server.py &
+          uv run python mock_server/server.py > /tmp/server.log 2>&1 &
           for i in $(seq 1 30); do
             if curl -s -o /dev/null http://127.0.0.1:8100/api/v1/_debug/users; then
               echo "服务已就绪，探测 $i 次"
@@ -32,8 +32,13 @@ jobs:
             fi
             sleep 1
           done
-          echo "服务 30 秒内未就绪，退出"
+          echo "服务 30 秒内未就绪，服务日志："
+          cat /tmp/server.log
           exit 1
 
       - name: 运行接口测试
         run: uv run pytest -q
+
+      - name: 停止被测服务
+        if: always()
+        run: pkill -f mock_server/server.py || true
