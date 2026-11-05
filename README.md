@@ -4,7 +4,7 @@
 
 ## 这是什么
 
-测试某电商 App 的「账号模块」，负责用户注册、登录、查看个人资料、修改密码。 共17条用例
+测试某电商 App 的「账号模块」，负责用户注册、登录、查看个人资料、修改密码。 共 18 条用例
 
 ## 快速开始
 
@@ -31,7 +31,7 @@ python mock_server/server.py
 
 ### 4. 看报告
 
-终端：11 passed, 6 xfailed
+终端：12 passed, 6 xfailed
 Allure：(需要 Java 8+；没装的话把 JAVA_HOME 指向任意 JDK 目录)
         例：$env:JAVA_HOME = "D:\PyCharm 2026.2.1\jbr" 
         python -m pytest --alluredir=allure-results --clean-alluredir （--clean-alluredir 表示先清空上一次的结果，不加会累积）
@@ -39,7 +39,7 @@ Allure：(需要 Java 8+；没装的话把 JAVA_HOME 指向任意 JDK 目录)
 
 ## 测试范围
 
-注册 8 条 / 登录 3 条 / 改密 4 条 / 资料 2 条，共 17 条。
+注册 9 条 / 登录 3 条 / 改密 4 条 / 资料 2 条，共 18 条。
 
 ## 发现的问题
 
